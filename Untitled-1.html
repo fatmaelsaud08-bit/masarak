@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مسارك | Masarak</title>
+<meta name="description" content="مسارك: منصة مجانية تساعد طلاب الثانوي في مصر يختاروا مجالهم ويبدأوا بكورسات مجانية. A free platform that helps Egyptian students choose a career field.">
+<meta name="theme-color" content="#060a14">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🧭%3C/text%3E%3C/svg%3E">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+*{box-sizing:border-box}
+:root{--p:#2563eb;--p2:#1d4ed8;--bg:#f5f7fb;--tx:#16213a;--mu:#64708a;--bd:#e3e8f2}
+body{font-family:'Cairo',Tahoma,Arial,sans-serif;margin:0;color:var(--tx);background:var(--bg);min-height:100vh}
+header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--bd)}
+.hin{max-width:1000px;margin:auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.logo{font-size:22px;font-weight:700;color:var(--p);cursor:pointer}
+nav{display:flex;gap:4px;flex-wrap:wrap;align-items:center}
+nav button{width:auto;margin:0;padding:7px 14px;border:none;border-radius:8px;background:transparent;color:var(--tx);font-size:14px;font-weight:600}
+nav button:hover{background:#eef3ff;transform:none;border:none}
+nav button.active{background:#e8efff;color:var(--p)}
+nav #nav-lang{border:1px solid var(--bd);color:var(--p)}
+#app{max-width:1000px;margin:24px auto 100px;padding:0 16px}
+button{display:block;width:100%;text-align:start;font:inherit;font-size:15px;padding:13px 14px;margin-top:10px;border:1.5px solid var(--bd);border-radius:12px;background:#fff;color:var(--tx);cursor:pointer;transition:.15s}
+button:hover{border-color:var(--p);background:#f4f7ff}
+.go{background:var(--p);color:#fff;text-align:center;border:none;font-weight:600}
+.go:hover{background:var(--p2);color:#fff}
+.ghost{background:#fff;color:var(--p);text-align:center;border:1.5px solid var(--p)}
+.hero{background:linear-gradient(135deg,#1e3a8a,#2563eb 60%,#4f8cff);color:#fff;border-radius:20px;padding:36px 28px;margin-bottom:20px}
+.hero h1{font-size:32px;margin:0 0 12px;line-height:1.4}
+.hero p{margin:0;max-width:640px;line-height:1.9;color:#e3ecff}
+.btnrow{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+.btnrow button{margin:0;width:auto;min-width:160px;flex:0 0 auto}
+.hero .ghost{background:transparent;color:#fff;border-color:#fff}
+.hero .go{background:#fff;color:var(--p2)}
+h1.pt{font-size:26px;margin:0 0 6px}
+h2.st{font-size:20px;margin:26px 0 12px}
+.sub{color:var(--mu);margin:0 0 18px}
+.card{background:#fff;border:1px solid var(--bd);border-radius:16px;padding:20px;margin-bottom:14px}
+.card h2{font-size:18px;margin:0 0 10px}
+.card p{line-height:1.8;margin:6px 0}
+.small{color:var(--mu);font-size:14px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:8px}
+.stat{background:#fff;border:1px solid var(--bd);border-radius:14px;padding:16px;text-align:center}
+.stat b{display:block;font-size:30px;color:var(--p)}
+.stat span{font-size:13px;color:var(--mu)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.step{background:#fff;border:1px solid var(--bd);border-radius:14px;padding:18px}
+.step .ic{font-size:28px}
+.step b{display:block;margin:6px 0 4px}
+.step span{font-size:14px;color:var(--mu);line-height:1.7}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.tile{margin:0;display:flex;gap:12px;align-items:center;padding:14px;border-radius:14px}
+.tile .ti{font-size:26px;width:46px;height:46px;border-radius:12px;background:#eef3ff;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.tile b{display:block;font-size:15px}
+.tile span{font-size:12px;color:var(--mu)}
+.progress{height:8px;background:#e8edf7;border-radius:8px;overflow:hidden;margin-bottom:14px}
+.progress div{height:100%;background:var(--p);transition:width .3s}
+.qwrap{max-width:640px;margin:auto}
+.meter{height:10px;background:#e8edf7;border-radius:8px;overflow:hidden;margin:6px 0 14px}
+.meter span{display:block;height:100%;background:linear-gradient(90deg,#10b981,var(--p))}
+.rank{display:inline-block;background:#e8efff;color:var(--p);border-radius:20px;padding:2px 12px;font-size:13px;font-weight:600;margin-bottom:8px}
+ul{padding-inline-start:20px;margin:6px 0}
+li{margin:6px 0;line-height:1.7}
+li a{color:var(--p)}
+.note{background:#fff8e6;border:1px solid #f3dca0;border-radius:12px;padding:12px;font-size:14px;margin:14px 0}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:8px;margin-bottom:6px}
+.chip{display:inline-block;width:auto;flex-shrink:0;white-space:nowrap;margin:0;padding:8px 16px;border-radius:20px;font-size:14px;text-align:center}
+.chip.on{background:var(--p);color:#fff;border-color:var(--p)}
+.langrow{display:flex;gap:8px;margin:8px 0 12px}
+#csearch{width:100%;font:inherit;font-size:15px;padding:11px 14px;border:1.5px solid var(--bd);border-radius:12px;margin-bottom:12px;outline:none;background:#fff}
+#csearch:focus{border-color:var(--p)}
+.count{color:var(--mu);font-size:14px;margin:4px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.course{margin:0;display:flex;flex-direction:column;justify-content:space-between}
+.cico{height:92px;border-radius:12px;background:linear-gradient(135deg,#e8efff,#f1e9ff);display:flex;align-items:center;justify-content:center;font-size:40px;margin-bottom:12px}
+.tag{display:inline-block;background:#eef3ff;color:var(--p);border-radius:20px;padding:2px 11px;font-size:12px;margin:0 0 8px;margin-inline-end:6px;font-weight:600}
+.tag.lang{background:#e7f7f1;color:#0f7a63}
+.tag.free{background:#fff3dc;color:#9a6200}
+.course h2{font-size:16px;line-height:1.6;margin:4px 0 6px}
+a.link{display:block;text-align:center;background:var(--p);color:#fff;text-decoration:none;padding:11px;border-radius:10px;margin-top:10px;font-weight:600}
+a.link:hover{background:var(--p2)}
+.fav{position:absolute;top:10px;inset-inline-end:10px;width:38px;height:38px;padding:0;margin:0;border-radius:50%;font-size:18px;text-align:center;background:#fff}
+.fav.on{background:#fff3dc;border-color:#f0b429}
+.course{position:relative}
+.opts{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+textarea.cm{width:100%;font:inherit;font-size:15px;padding:11px 14px;border:1.5px solid var(--bd);border-radius:12px;min-height:90px;outline:none;resize:vertical}
+textarea.cm:focus{border-color:var(--p)}
+.err{background:#fdecec;border:1px solid #f3b4b4;color:#8a1c1c;border-radius:12px;padding:10px 12px;font-size:14px;margin:10px 0}
+.okc{background:#e7f7f1;border:1px solid #a8dcc8;color:#0f5f4a;border-radius:12px;padding:12px;margin:10px 0}
+footer{text-align:center;color:var(--mu);font-size:13px;padding:10px 16px 90px}
+#botbtn{position:fixed;bottom:18px;inset-inline-start:18px;width:58px;height:58px;border-radius:50%;padding:0;margin:0;font-size:26px;text-align:center;z-index:30;background:var(--p);color:#fff;border:none;box-shadow:0 6px 20px rgba(37,99,235,.45)}
+#botbtn:hover{background:var(--p2)}
+#bot{position:fixed;bottom:88px;inset-inline-start:18px;width:min(370px,calc(100vw - 36px));height:480px;background:#fff;border:1px solid var(--bd);border-radius:16px;box-shadow:0 12px 36px rgba(15,30,70,.25);display:none;flex-direction:column;z-index:30;overflow:hidden}
+#bot.open{display:flex}
+.bothead{background:var(--p);color:#fff;padding:12px 14px;font-weight:700}
+#msgs{flex:1;overflow-y:auto;padding:10px}
+.msg{max-width:88%;padding:8px 12px;border-radius:12px;margin:6px 0;font-size:14px;line-height:1.7;white-space:pre-line}
+.msg.bot{background:#eef3ff}
+.msg.me{background:var(--p);color:#fff;margin-inline-start:auto}
+#sugg{padding:0 8px 6px;max-height:84px;overflow-y:auto}
+#sugg button{display:inline-block;width:auto;margin:0 0 6px;margin-inline-end:6px;padding:5px 12px;font-size:12px;border-radius:16px}
+.botin{display:flex;gap:6px;padding:8px;border-top:1px solid var(--bd)}
+.botin input{flex:1;font:inherit;font-size:14px;padding:8px 10px;border:1.5px solid var(--bd);border-radius:10px;outline:none}
+.botin input:focus{border-color:var(--p)}
+.botin button{width:auto;margin:0;padding:8px 14px;font-size:14px;text-align:center}
+@media(max-width:600px){.hero h1{font-size:25px}.stats{gap:8px}.stat b{font-size:24px}}
+@media print{header,#bot,#botbtn,.noprint,footer{display:none!important}body{background:#fff}}
+</style>
+<script>
+/* ===== الصق إعدادات Firebase هنا بدل null، واكتب إيميلك كأدمن ===== */
+var FIREBASE_CONFIG = {
+  apiKey: "AIzaSyD7e154MH-zgDmT2ca7c1Sjv28Tle8T6uY",
+  authDomain: "masarak-ee690.firebaseapp.com",
+  projectId: "masarak-ee690",
+  storageBucket: "masarak-ee690.firebasestorage.app",
+  messagingSenderId: "326290417368",
+  appId: "1:326290417368:web:61cf7c73721d5a4b8fd9ad"
+};
+var ADMIN_EMAIL = "fatmaelsaud08@gmail.com";
+</script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<style id="pro">
+:root{--p:#4f8cff;--p2:#3b73e6;--bg:#060a14;--tx:#e8eeff;--mu:#8d9abd;--bd:rgba(120,150,255,.18);--gl:rgba(14,21,40,.68);color-scheme:dark}
+body{background:var(--bg)}
+#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+header,#app,footer{position:relative;z-index:2}
+header{background:rgba(6,10,20,.72);backdrop-filter:blur(14px);border-bottom:1px solid var(--bd)}
+button,.card,.stat,.step,#csearch,textarea.cm,.fav,#bot,.botin input,.tile{background:var(--gl);color:var(--tx);backdrop-filter:blur(8px)}
+nav button{background:transparent}
+nav button:hover,button:hover{background:rgba(79,140,255,.16)}
+nav button.active{background:rgba(79,140,255,.22);color:#9cc0ff}
+.go{background:linear-gradient(135deg,#3b73e6,#6d5df6);color:#fff}
+.go:hover{background:linear-gradient(135deg,#4f8cff,#8b5cf6);color:#fff}
+.ghost{background:transparent;color:#9cc0ff;border-color:var(--p)}
+.hero .go{background:#fff;color:#1d4ed8}.hero .go:hover{background:#e8efff;color:#1d4ed8}
+.hero .ghost{background:transparent;color:#fff}
+.hero{background:linear-gradient(120deg,#0b1647,#1d4ed8,#6d28d9,#1d4ed8);background-size:300% 300%;animation:up .7s both,flow 12s ease infinite;border:1px solid var(--bd);box-shadow:0 20px 60px rgba(59,115,230,.25)}
+.logo,.stat b,li a,.card h2{color:#9cc0ff}
+.tile .ti,.cico{background:rgba(79,140,255,.14)}
+.tag{background:rgba(79,140,255,.16);color:#9cc0ff}.tag.lang{background:rgba(16,185,129,.16);color:#6ee7b7}.tag.free{background:rgba(245,158,11,.16);color:#fcd34d}
+.rank{background:rgba(79,140,255,.2);color:#9cc0ff}
+.progress,.meter{background:rgba(120,150,255,.14)}
+.note{background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.35);color:#fde9b0}
+.err{background:rgba(239,68,68,.12);border-color:rgba(239,68,68,.4);color:#fca5a5}
+.okc{background:rgba(16,185,129,.12);border-color:rgba(16,185,129,.4);color:#6ee7b7}
+.msg.bot{background:rgba(79,140,255,.16)}
+.fav.on{background:rgba(245,158,11,.2);border-color:#f0b429}
+.dn{text-align:center;font-size:14px}.dn.on{background:rgba(16,185,129,.18);border-color:#10b981;color:#6ee7b7}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes flow{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
+.card,.step,.stat,.tile{animation:up .55s both}
+.card:hover,.tile:hover,.step:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(79,140,255,.2);border-color:var(--p)}
+.card,.tile,.step{transition:transform .2s,box-shadow .2s,border-color .2s}
+#auth{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;background:rgba(4,7,14,.8);backdrop-filter:blur(10px);padding:16px;overflow:auto}
+#auth .box{width:min(400px,100%);background:rgba(14,21,40,.92);border:1px solid var(--bd);border-radius:20px;padding:26px;box-shadow:0 24px 70px rgba(0,0,0,.6);animation:up .5s both}
+#auth .lg{font-size:26px;font-weight:700;color:#9cc0ff;text-align:center}
+#auth h2{text-align:center;margin:8px 0 4px}#auth .small{text-align:center}
+.ai{width:100%;font:inherit;padding:12px 14px;margin-top:10px;border:1.5px solid var(--bd);border-radius:12px;background:rgba(6,10,20,.7);color:var(--tx);outline:none}
+.ai:focus{border-color:var(--p)}
+#auth .tg{background:transparent;border:none;color:#9cc0ff;text-align:center;font-size:14px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<div id="auth"></div>
+<header>
+  <div class="hin">
+    <div class="logo" id="logo">🧭 <span id="logo-text"></span></div>
+    <nav>
+      <button id="nav-home"></button>
+      <button id="nav-quiz"></button>
+      <button id="nav-courses"></button>
+      <button id="nav-fav"></button>
+      <button id="nav-about"></button>
+      <button id="nav-lang"></button>
+    </nav>
+  </div>
+</header>
+<div id="app"></div>
+<footer id="foot"></footer>
+ 
+<button id="botbtn">💬</button>
+<div id="bot">
+  <div class="bothead" id="bothead"></div>
+  <div id="msgs"></div>
+  <div id="sugg"></div>
+  <div class="botin">
+    <input id="botinput">
+    <button id="botsend" class="go"></button>
+  </div>
+</div>
+ 
+<script>
+let L = "ar";
+ 
+const T = {
+ar:{
+ logo:"مسارك", nHome:"الرئيسية", nQuiz:"الاختبار", nCourses:"الكورسات", nAbout:"عن المشروع", nFav:"قائمتي", lang:"EN",
+ heroT:"مش عارف تختار مجالك؟ ابدأ من هنا.",
+ heroP:"مسارك منصة مجانية بتساعد طلاب الثانوي في مصر يكتشفوا المجال المناسب لاهتماماتهم، ويعرفوا المهارات المطلوبة في سوق العمل، ويبدأوا بكورسات مجانية بالعربي والإنجليزي.",
+ startQuiz:"ابدأ الاختبار", browse:"تصفح الكورسات",
+ sField:"مجال", sCourse:"كورس مجاني", sQ:"أسئلة بس",
+ howT:"إزاي بتشتغل المنصة؟",
+ s1t:"جاوب", s1p:"10 أسئلة قصيرة عن اهتماماتك وطريقتك في الشغل.",
+ s2t:"اعرف مجالك", s2p:"هتطلعلك أنسب 3 مجالات بدرجة توافق لكل واحد.",
+ s3t:"ابدأ", s3p:"مهارات كل مجال وكورسات مجانية تبدأ بيها فوراً.",
+ tracksT:"المسارات", tracksP:"اختار أي مسار وشوف كورساته المجانية.",
+ quizT:"اكتشف المجال المناسب ليك",
+ quizP:"جاوب على {n} أسئلة قصيرة. مفيش إجابة صح وإجابة غلط، اختار اللي أقرب ليك.",
+ qOf:"سؤال {i} من {n}", back:"↩ رجوع للسؤال السابق",
+ resT:"المجالات المناسبة ليك", rank:"المركز {n}", fit:"درجة التوافق: {p}%",
+ skills:"المهارات المطلوبة:", starter:"كورسات للبداية:", seeAll:"شوف كل كورسات المسار",
+ resNote:"النتيجة دي اقتراح مبدئي بيساعدك تبدأ، مش حكم نهائي. جرّب أكتر من مجال قبل ما تقرر.",
+ again:"أعد الاختبار", pdf:"حفظ النتيجة PDF",
+ cT:"الكورسات المجانية", cP:"كل مسار ليه كورسات مجانية. استخدم التابات والفلتر والبحث.",
+ all:"الكل", cAr:"عربي", cEn:"English",
+ search:"ابحث عن كورس...", open:"افتح الكورس", free:"مجاني",
+ nSearch:"اللينك ده بيفتح بحث عن الكورس. اختار النتيجة من الموقع الرسمي.",
+ nPlat:"ده لينك المنصة. اختار الكورس اللي يناسبك جواها.",
+ empty:"مفيش كورسات بالبحث ده. جرّب كلمة تانية.", cnt:"{n} كورس",
+ payNote:"الكورسات نفسها مجانية. بعض المنصات (زي Alison وOpenClassrooms) بتبيع الشهادة بفلوس، وده اختياري. اتأكد من صفحة كل كورس.",
+ foot:"مسارك © مشروع تعليمي مجاني لطلاب الثانوي في مصر",
+ svBtn:"شاركنا رأيك (30 ثانية)", svT:"رأيك يهمنا", svP:"الاستبيان مجهول، مفيش اسم ولا بيانات شخصية.",
+ svGrade:"إنت في أنهي سنة؟", svGradeOpts:["أولى ثانوي","تانية ثانوي","تالتة ثانوي","غير ذلك"],
+ svFit:"النتيجة كانت مناسبة لاهتماماتك قد إيه؟ (1 = مش مناسبة، 5 = مناسبة جداً)",
+ svKnew:"كنت عارف مجالك قبل الاختبار؟", svKnewOpts:["أيوه كنت عارف","لأ مكنتش عارف","مش متأكد"],
+ svWill:"هتبدأ كورس من المنصة؟", svWillOpts:["أيوه هبدأ كورس","يمكن","لأ"],
+ svComment:"اقتراح أو ملاحظة (اختياري)", svSend:"إرسال", svNeed:"من فضلك جاوب على الأسئلة الأربعة الأولى.",
+ svThanks:"شكراً ليك! رأيك اتسجل.", svHome:"ارجع للرئيسية",
+ shareBtn:"انسخ نتيجتي", shareDone:"اتنسخت ✓", shareText:"نتيجتي في مسارك: {f}. جرّبه إنت كمان!",
+ stN:"عدد الردود: {n}", stFit:"{p}% شافوا النتيجة مناسبة (4 أو 5 من 5)", stWill:"{p}% هيبدأوا كورس", stKnew:"{p}% مكانوش عارفين مجالهم قبل الاختبار", stAvg:"متوسط التوافق: {a} من 5",
+ stLocal:"الردود دي محفوظة على الجهاز ده بس.", csv:"تحميل الردود CSV", clear:"مسح الردود", clearAsk:"متأكد إنك عاوز تمسحي كل الردود؟",
+ 
+ favT:"قائمتي", favP:"الكورسات اللي حفظتها بالنجمة ⭐ بتظهر هنا.", favEmpty:"لسه محفظتش كورسات. دوس ⭐ على أي كورس عشان يتحفظ هنا.", favAdd:"حفظ في قائمتي", favDel:"إزالة من قائمتي",
+ aboutT:"عن المشروع", resultsT:"نتايج التجربة", resultsP:"هتتضاف هنا بعد تجربة المنصة على الطلاب.",
+ about:[
+  ["المشكلة","كتير من طلاب الثانوي في مصر مش عارفين يختاروا مجال يناسبهم، ومش عارفين المهارات اللي سوق العمل محتاجها، فبيتخرجوا من غير مهارات عملية واضحة."],
+  ["الفكرة","منصة مجانية بتسأل الطالب أسئلة بسيطة عن اهتماماته، وتقترح عليه مجالات مناسبة، وتوريه المهارات المطلوبة وكورسات مجانية يبدأ بيها، بالعربي والإنجليزي."],
+  ["إزاي اتبنت","مهارات 5 مجالات (التقنية، التسويق الرقمي، التصميم، الهندسة والصيانة، الترجمة وصناعة المحتوى) اتجمعت من إعلانات وظايف حقيقية على مواقع التوظيف. باقي المجالات مبنية على معرفة عامة ولسه بتتراجع بإعلانات حقيقية. الكورسات من منصات مجانية زي OpenClassrooms وAlison وإدراك وfreeCodeCamp، وكورسات Alison بتفتح صفحتها المباشرة على موقع Alison."],
+  ["حدود المشروع","الاختبار بسيط ومبني على قواعد نقاط، وهو اقتراح مبدئي مش تشخيص نهائي. والشات بوت بيشتغل بكلمات وقواعد مش ذكاء اصطناعي. الكورسات العربي أقل من الإنجليزي حالياً، وبعض اللينكات بتفتح صفحة المنصة أو بحث عن الاسم."],
+  ["الخطوة الجاية","تجربة المنصة على مجموعة من طلاب الثانوي، وجمع آرائهم، وقياس إذا كانت ساعدتهم يختاروا ويبدأوا فعلاً، وتطوير الاختبار والكورسات بناءً على النتايج."]
+ ],
+ bot:"🤖 مساعد مسارك", botPh:"اكتب سؤالك هنا", send:"إرسال",
+ welcome:"أهلاً! أنا مساعد مسارك. اسألني عن أي مجال، أو الكورسات، أو إزاي الاختبار بيشتغل.",
+ sugg:["إزاي أبدأ؟","إيه المجالات المتاحة؟","فيه كورسات مجانية؟","كورسات عربي","الفرق بين التسويق والتصميم","نصيحة"],
+ hi:"أهلاً بيك! تحب تسأل عن مجال معين ولا الكورسات؟",
+ thanks:"العفو! بالتوفيق في رحلتك.",
+ suggestFlow:"عشان أرشحلك مجال مناسب، أحسن حاجة تعمل الاختبار (10 أسئلة بس). أو قولي إيه اللي بتحبه (رسم، برمجة، كتابة...) وأقولك مجالات قريبة.",
+ howStart:"ابدأ بصفحة الاختبار وجاوب على الأسئلة، وبعدها هتشوف أنسب المجالات ومهاراتها وكورسات تبدأ بيها.",
+ quizHow:"كل إجابة بتدي نقط لمجالات معينة، وبنجمع النقط ونطلعلك أعلى 3 مجالات. درجة التوافق هي نقط المجال مقسومة على عدد الأسئلة. وهي اقتراح مبدئي مش حكم نهائي.",
+ cert:"الكورسات مجانية، لكن بعض المنصات (زي Alison وOpenClassrooms) بتبيع الشهادة بفلوس وده اختياري. اتأكد من صفحة كل كورس قبل ما تبدأ.",
+ fieldsList:"المجالات المتاحة:", coursesAre:"كورسات:", more:"وغيرهم كتير في صفحة الكورسات.",
+ compare:"مقارنة سريعة:", topSk:"أهم المهارات:",
+ howMany:"عندنا {f} مجال و{c} كورس مجاني حالياً.",
+ fallback:"مش متأكد فهمت. جرب تسأل عن مجال معين (زي التسويق أو البرمجة)، أو عن الكورسات، أو إزاي الاختبار بيشتغل.",
+ tips:["ابدأ بكورس واحد وخلصه قبل ما تفتح التاني.","جرّب مجالين قبل ما تقرر، التجربة أحسن من التخمين.","ابني Portfolio صغير من أول يوم، حتى لو تمارين بسيطة.","الإنجليزي مهم في كل المجالات تقريباً، فخصص وقت صغير كل يوم ليه.","اسأل ناس شغالة في المجال ده عن يوم الشغل الحقيقي."]
+},
+en:{
+ logo:"Masarak", nHome:"Home", nQuiz:"Quiz", nCourses:"Courses", nAbout:"About", nFav:"My list", lang:"عربي",
+ heroT:"Not sure which field to choose? Start here.",
+ heroP:"Masarak is a free platform that helps Egyptian high school students discover the field that fits their interests, learn the skills the job market needs, and start with free courses in Arabic and English.",
+ startQuiz:"Start the quiz", browse:"Browse courses",
+ sField:"fields", sCourse:"free courses", sQ:"questions only",
+ howT:"How does it work?",
+ s1t:"Answer", s1p:"10 short questions about your interests and how you like to work.",
+ s2t:"Find your field", s2p:"You get your top 3 fields with a match score for each.",
+ s3t:"Start", s3p:"The skills for each field and free courses to begin right away.",
+ tracksT:"Career tracks", tracksP:"Pick any track and see its free courses.",
+ quizT:"Discover the field that suits you",
+ quizP:"Answer {n} short questions. There are no right or wrong answers. Pick what feels closest to you.",
+ qOf:"Question {i} of {n}", back:"↩ Previous question",
+ resT:"Fields that suit you", rank:"No. {n}", fit:"Match score: {p}%",
+ skills:"Skills needed:", starter:"Starter courses:", seeAll:"See all courses in this track",
+ resNote:"This result is a starting suggestion, not a final verdict. Try more than one field before you decide.",
+ again:"Retake the quiz", pdf:"Save result as PDF",
+ cT:"Free courses", cP:"Every track has free courses. Use the tabs, the filter and the search.",
+ all:"All", cAr:"Arabic", cEn:"English",
+ search:"Search for a course...", open:"Open course", free:"Free",
+ nSearch:"This link opens a search for the course. Pick the result from the official site.",
+ nPlat:"This is the platform link. Choose the course that suits you inside it.",
+ empty:"No courses match this search. Try another word.", cnt:"{n} courses",
+ payNote:"The courses themselves are free. Some platforms (like Alison and OpenClassrooms) sell the certificate, which is optional. Check each course page.",
+ foot:"Masarak © a free educational project for high school students in Egypt",
+ svBtn:"Share your feedback (30 seconds)", svT:"We value your opinion", svP:"The survey is anonymous: no name and no personal data.",
+ svGrade:"Which school year are you in?", svGradeOpts:["Grade 10","Grade 11","Grade 12","Other"],
+ svFit:"How well did the result match your interests? (1 = not at all, 5 = very well)",
+ svKnew:"Did you know your field before the quiz?", svKnewOpts:["Yes, I knew","No, I didn't","Not sure"],
+ svWill:"Will you start a course from the platform?", svWillOpts:["Yes, I will","Maybe","No"],
+ svComment:"Suggestion or comment (optional)", svSend:"Submit", svNeed:"Please answer the first four questions.",
+ svThanks:"Thank you! Your answer was recorded.", svHome:"Back to home",
+ shareBtn:"Copy my result", shareDone:"Copied ✓", shareText:"My Masarak result: {f}. Try it too!",
+ stN:"Responses: {n}", stFit:"{p}% found the result suitable (4 or 5 out of 5)", stWill:"{p}% will start a course", stKnew:"{p}% did not know their field before the quiz", stAvg:"Average match: {a} out of 5",
+ stLocal:"These responses are saved on this device only.", csv:"Download responses CSV", clear:"Clear responses", clearAsk:"Are you sure you want to delete all responses?",
+ 
+ favT:"My list", favP:"Courses you save with the star ⭐ appear here.", favEmpty:"You have not saved any courses yet. Tap ⭐ on any course to save it here.", favAdd:"Save to my list", favDel:"Remove from my list",
+ aboutT:"About the project", resultsT:"Pilot results", resultsP:"These will be added here after the platform is tested with students.",
+ about:[
+  ["The problem","Many high school students in Egypt do not know which field suits them or which skills the job market needs, so they graduate without clear practical skills."],
+  ["The idea","A free platform that asks students simple questions about their interests, suggests suitable fields, and shows the skills needed plus free courses to start with, in Arabic and English."],
+  ["How it was built","Skills for 5 fields (technology, digital marketing, graphic design, engineering and maintenance, translation and content creation) were collected from real job postings on job sites. The other fields are based on general knowledge and are still being checked against real postings. Courses come from free platforms such as OpenClassrooms, Alison, Edraak and freeCodeCamp. Alison courses open their direct page on the Alison website."],
+  ["Limitations","The quiz is simple and rule-based, so it is a starting suggestion, not a final diagnosis. The chatbot works with keywords and rules, not real AI. There are fewer Arabic courses than English ones for now, and some links open a platform page or a search for the course name."],
+  ["Next step","Test the platform with a group of high school students, collect their feedback, measure whether it helped them choose and actually start, and improve the quiz and courses based on the results."]
+ ],
+ bot:"🤖 Masarak Assistant", botPh:"Type your question here", send:"Send",
+ welcome:"Hi! I'm the Masarak assistant. Ask me about any field, the courses, or how the quiz works.",
+ sugg:["How do I start?","Which fields are available?","Are there free courses?","Arabic courses","Marketing vs design","Give me a tip"],
+ hi:"Hello! Would you like to ask about a specific field or the courses?",
+ thanks:"You're welcome! Good luck on your journey.",
+ suggestFlow:"To suggest a field, the best way is to take the quiz (only 10 questions). Or tell me what you enjoy (drawing, coding, writing...) and I'll point you to related fields.",
+ howStart:"Start with the quiz page and answer the questions. Then you'll see your best-fit fields, their skills, and courses to begin with.",
+ quizHow:"Each answer gives points to certain fields. We add up the points and show your top 3 fields. The match score is a field's points divided by the number of questions. It is a starting suggestion, not a final verdict.",
+ cert:"The courses are free, but some platforms (like Alison and OpenClassrooms) sell the certificate, which is optional. Check each course page before you start.",
+ fieldsList:"Available fields:", coursesAre:"Courses:", more:"And many more on the Courses page.",
+ compare:"Quick comparison:", topSk:"Top skills:",
+ howMany:"We currently have {f} fields and {c} free courses.",
+ fallback:"I'm not sure I understood. Try asking about a specific field (like marketing or programming), the courses, or how the quiz works.",
+ tips:["Start one course and finish it before opening another.","Try two fields before deciding. Trying beats guessing.","Build a small portfolio from day one, even with simple exercises.","English matters in almost every field, so give it a little time each day.","Ask people who work in that field about a real day at work."]
+}};
+function tr(k, o){
+  let s = T[L][k];
+  if(o){ Object.keys(o).forEach(function(x){ s = s.replace("{" + x + "}", o[x]); }); }
+  return s;
+}
+ 
+/* ====== المجالات ====== */
+const F = {
+ tech:{ic:"💻",a:"التقنية (AI وبرمجة)",e:"Technology (AI & Programming)",sa:["Python","SQL","HTML/CSS/JavaScript","Git","Power BI","إحصاء أساسي"],se:["Python","SQL","HTML/CSS/JavaScript","Git","Power BI","Basic statistics"]},
+ mkt:{ic:"📣",a:"التسويق الرقمي",e:"Digital Marketing",sa:["كتابة وتحرير","السوشيال ميديا","صناعة المحتوى","إعلانات مدفوعة","بحث أونلاين"],se:["Writing & editing","Social media","Content creation","Paid ads","Online research"]},
+ design:{ic:"🎨",a:"التصميم الجرافيكي",e:"Graphic Design",sa:["Photoshop","Illustrator","Canva","مبادئ التصميم","Portfolio"],se:["Photoshop","Illustrator","Canva","Design principles","Portfolio"]},
+ eng:{ic:"⚙️",a:"الهندسة والصيانة",e:"Engineering & Maintenance",sa:["قراءة الرسومات الفنية","أنظمة كهربية وميكانيكية","السلامة المهنية","حل المشكلات","توثيق وتقارير"],se:["Reading technical drawings","Electrical & mechanical systems","Occupational safety","Problem solving","Documentation & reports"]},
+ trans:{ic:"✍️",a:"الترجمة وصناعة المحتوى",e:"Translation & Content Creation",sa:["كتابة بالعربي والإنجليزي","سوشيال ميديا","Canva","مونتاج أساسي","تنظيم الوقت"],se:["Arabic & English writing","Social media","Canva","Basic video editing","Time management"]},
+ acc:{ic:"🧾",a:"المحاسبة والمالية",e:"Accounting & Finance",sa:["Excel","مبادئ المحاسبة","تحليل مالي","دقة وتنظيم","برامج محاسبية"],se:["Excel","Accounting principles","Financial analysis","Accuracy & organization","Accounting software"]},
+ sales:{ic:"🛒",a:"خدمة العملاء والمبيعات",e:"Customer Service & Sales",sa:["تواصل وإقناع","الاستماع","حل المشكلات","إنجليزي محادثة","صبر وتحمل ضغط"],se:["Communication & persuasion","Listening","Problem solving","Spoken English","Patience under pressure"]},
+ hr:{ic:"👥",a:"الموارد البشرية",e:"Human Resources",sa:["تواصل","تنظيم","مبادئ التوظيف","Excel","سرية وأخلاقيات"],se:["Communication","Organization","Recruitment basics","Excel","Confidentiality & ethics"]},
+ cyber:{ic:"🔒",a:"الأمن السيبراني",e:"Cybersecurity",sa:["شبكات","Linux","Python","أساسيات الحماية","تفكير تحليلي"],se:["Networking","Linux","Python","Security basics","Analytical thinking"]},
+ video:{ic:"🎬",a:"المونتاج وصناعة الفيديو",e:"Video Editing & Production",sa:["Premiere Pro أو CapCut","قص وترتيب","صوت وموسيقى","سرد قصة","إبداع"],se:["Premiere Pro or CapCut","Cutting & sequencing","Sound & music","Storytelling","Creativity"]},
+ teach:{ic:"🍎",a:"التعليم والتدريس",e:"Teaching & Education",sa:["شرح مبسط","صبر","تنظيم الدروس","تواصل","أدوات تعليم رقمية"],se:["Clear explanation","Patience","Lesson planning","Communication","Digital teaching tools"]},
+ health:{ic:"🩺",a:"الصيدلة والمجال الصحي",e:"Pharmacy & Health",sa:["كيمياء وأحياء","دقة عالية","حفظ ومراجعة","تواصل مع المرضى","أخلاقيات المهنة"],se:["Chemistry & biology","High accuracy","Memorization & revision","Patient communication","Professional ethics"]},
+ biz:{ic:"💡",a:"ريادة الأعمال",e:"Entrepreneurship",sa:["تفكير إبداعي","إدارة مالية بسيطة","تسويق","قيادة","تحمل المخاطرة"],se:["Creative thinking","Basic money management","Marketing","Leadership","Risk tolerance"]},
+ tour:{ic:"✈️",a:"السياحة والضيافة",e:"Tourism & Hospitality",sa:["لغات","خدمة العملاء","تنظيم","ثقافة وتاريخ","تعامل مع الناس"],se:["Languages","Customer service","Organization","Culture & history","People skills"]}
+};
+function fname(k){ return L === "ar" ? F[k].a : F[k].e; }
+function fskills(k){ return L === "ar" ? F[k].sa : F[k].se; }
+ 
+/* ====== الكورسات ======
+ كل سطر: [id, الاسم بالإنجليزي, الاسم بالعربي (أو فاضي), المنصة, اللغة, اللينك, المسارات, نوع اللينك]
+ نوع اللينك: 0 مباشر، 1 صفحة المنصة، 2 بحث */
+function g(q){ return "https://www.google.com/search?q=" + encodeURIComponent(q); }
+const RAW = [
+ ["py","Learn Python Basics for Data Analysis","","OpenClassrooms","en","https://openclassrooms.com/courses/2304731-learn-python-basics-for-data-analysis","tech,cyber",0],
+ ["html","Build Your First Web Pages With HTML and CSS","","OpenClassrooms","en","https://openclassrooms.com/courses/5265446-build-your-first-web-pages-with-html-and-css","tech",0],
+ ["sql","Retrieve Data Using SQL","","OpenClassrooms","en","https://openclassrooms.com/courses/2071486-retrieve-data-using-sql","tech",0],
+ ["ai","Destination AI: Introduction to Artificial Intelligence","","OpenClassrooms","en","https://openclassrooms.com/en/courses/7078811-destination-ai-introduction-to-artificial-intelligence","tech",0],
+ ["fcc","freeCodeCamp: Free Coding Curriculum","","freeCodeCamp","en","https://www.freecodecamp.org","tech",1],
+ ["cs50","CS50: Introduction to Computer Science (Harvard)","","Harvard","en","https://cs50.harvard.edu","tech,cyber",1],
+ ["khan","Khan Academy: Computer Programming","","Khan Academy","en","https://www.khanacademy.org","tech",1],
+ ["arpy","Introduction to Programming with Python","مقدمة إلى البرمجة باستخدام لغة بايثون","Edraak","ar",g("إدراك مقدمة إلى البرمجة باستخدام لغة بايثون"),"tech",2],
+ ["arai","Introduction to Artificial Intelligence","مقدمة إلى الذكاء الاصطناعي","Edraak","ar",g("إدراك مقدمة إلى الذكاء الاصطناعي"),"tech",2],
+ 
+ ["cy1","Ethical Hacking: Basic Concepts of Networking","","Alison","en","https://alison.com/course/ethical-hacking-basic-concepts-of-networking","cyber",0],
+ ["cy2","Ethical Hacker","","Alison","en","https://alison.com/course/ethical-hacker","cyber",0],
+ ["cy3","Diploma in Cyber Security","","Alison","en","https://courses.ie/course/diploma-in-cyber-security-186745","cyber",0],
+ ["cy4","Diploma in Ethical Hacking","","Alison","en","https://courses.ie/course/diploma-in-ethical-hacking-188532","cyber",0],
+ ["cy5","AI-Powered Cybersecurity Fundamentals","","Alison","en","https://www.courses.ie/course/ai-powered-cybersecurity-fundamentals-195225/","cyber",0],
+ 
+ ["mk1","Digital Marketing Overview","","Alison","en","https://alison.com/course/digital-marketing-overview","mkt",0],
+ ["mk2","Basic Concepts of Digital Marketing","","Alison","en","https://alison.com/course/basic-concepts-of-digital-marketing","mkt",0],
+ ["mk3","Digital Advertising and Marketing 101","","Alison","en","https://alison.com/course/digital-advertising-and-marketing-101","mkt",0],
+ ["mk4","Online Marketing and Advertising","","Alison","en","https://www.courses.ie/course/online-marketing-and-advertising-195495/","mkt",0],
+ ["gdm","Google Digital Garage: Fundamentals of Digital Marketing","","Google","en",g("Google Digital Garage Fundamentals of Digital Marketing"),"mkt,biz",2],
+ ["armkt","Digital Marketing: SEO, Analytics and Online Presence","التسويق الرقمي: الـ SEO والتحليل الرقمي والتواجد الصحيح","Edraak","ar",g("إدراك التسويق الرقمي SEO التحليل الرقمي"),"mkt",2],
+ ["cw1","Copywriting for Conversions: How to Write Persuasive Content","","Alison","en","https://courses.ie/course/copywriting-for-conversions-how-to-write-persuasive-content-188566","mkt,trans",0],
+ 
+ ["canva","Introduction to Canva","","Alison","en","https://alison.com/course/introduction-to-canva","design,mkt,trans",0],
+ ["ds1","Graphic Design","","Alison","en","https://alison.com/courses/graphic-design/content","design",0],
+ ["ds2","Diploma in Graphic Design","","Alison","en","https://courses.ie/course/diploma-in-graphic-design-187448","design",0],
+ ["ds3","Master Adobe Illustrator CC With Ease","","Alison","en","https://www.courses.ie/course/master-adobe-illustrator-cc-with-ease-201617/","design",0],
+ ["ds4","Diploma in a Beginner's Guide to Photoshop","","Alison","en","https://www.courses.ie/course/diploma-in-a-beginners-guide-to-photoshop-195836/","design",0],
+ ["ds5","Graphic Design: Theory, Principles and Practices","","Alison","en","https://courses.ie/course/graphic-design-187667","design",0],
+ 
+ ["vd1","Adobe Premiere Pro: A Complete Guide","","Alison","en","https://alison.com/course/adobe-premiere-pro-a-complete-guide","video",0],
+ ["vd2","Content Creation: Video Editing 102","","Alison","en","https://www.courses.ie/course/content-creation-video-editing-102-195374/","video",0],
+ ["vd3","Free Adobe Premiere Courses (Alison collection)","","Alison","en","https://alison.com/tag/adobe-premiere","video",1],
+ ["vd4","Free Art and Design Courses (Alison collection)","","Alison","en","https://alison.com/tag/art-and-design","video,design",1],
+ 
+ ["cw2","Copywriting Mastery: Key Concepts for Effective Communication","","Alison","en","https://alison.com/course/copywriting-mastery-key-concepts-for-effective-communication","trans",0],
+ ["cw3","Basic Concepts and Techniques for Copywriting","","Alison","en","https://alison.com/courses/basic-concepts-and-techniques-for-copywriting/content","trans",0],
+ ["cw4","Diploma in Copywriting Masterclass Leveraging ChatGPT","","Alison","en","https://www.courses.ie/course/diploma-in-copywriting-masterclass-leveraging-chatgpt-195384/","trans,mkt",0],
+ ["cw5","Basics of Copyediting","","Alison","en","https://www.courses.ie/course/basics-of-copyediting-188965/","trans",0],
+ 
+ ["acc","Accounting Essentials for Non-Accountants","أساسيات المحاسبة لغير المحاسبين","Edraak","ar","https://www.edraak.org/en/programs/course/afna102-v2026-t3/","acc",0],
+ ["ac1","Basics of Finance and Accounting","","Alison","en","https://www.courses.ie/course/basics-of-finance-and-accounting-188791/","acc",0],
+ ["ac2","Financial Accounting Basics","","Alison","en","https://courses.ie/course/financial-accounting-basics-187906","acc",0],
+ ["ac3","Introduction to Bookkeeping and Accounting Methods","","Alison","en","https://courses.ie/course/introduction-to-bookkeeping-and-accounting-methods-187872","acc",0],
+ ["ac4","Learn Accounting Fundamentals Super-Fast Using a Business Simulation Game","","Alison","en","https://www.courses.ie/course/learn-accounting-fundamentals-super-fast-using-a-business-simulation-game-195295/","acc",0],
+ ["ac5","Sage One: Bookkeeping and Accounting","","Alison","en","https://courses.ie/course/sage-one-bookkeeping-and-accounting-188116","acc",0],
+ ["ac6","Professional Bookkeeping and Accounting 1: Sales and Purchases","","Alison","en","https://www.courses.ie/course/professional-bookkeeping-and-accounting-1-sales-and-purchases-188915/","acc",0],
+ ["arxl","Advanced Excel Skills","مهارات متقدمة في Excel","Edraak","ar",g("إدراك مهارات متقدمة في Excel"),"acc,hr",2],
+ 
+ ["sl1","Sales Techniques: Interacting with Customers","","Alison","en","https://www.courses.ie/course/sales-techniques-interacting-with-customers-195417/","sales",0],
+ ["sl2","Introduction to Customer Service Excellence","","Alison","en","https://courses.ie/course/introduction-to-customer-service-excellence-188421","sales,tour",0],
+ ["sl3","Effective Customer Service Skills","","Alison","en","https://courses.ie/course/effective-customer-service-skills-187827","sales",0],
+ ["sl4","Customer Services","","Alison","en","https://www.courses.ie/course/customer-services-188579/","sales",0],
+ ["sl5","Customer Service Skills","","Alison","en","https://courses.ie/course/customer-service-skills-186748","sales",0],
+ ["sl6","Diploma in Customer Service","","Alison","en","https://www.courses.ie/course/diploma-in-customer-service-186733/","sales",0],
+ ["sl7","Developing Quality Customer Service Skills","","Alison","en","https://courses.ie/course/developing-quality-customer-service-skills-187922","sales",0],
+ 
+ ["hr1","Fundamentals of Human Resources","","Alison","en","https://courses.ie/course/fundamentals-of-human-resources-187443","hr",0],
+ ["hr2","Human Resources Diploma","","Alison","en","https://courses.ie/course/human-resources-diploma-188541","hr",0],
+ ["hr3","Diploma in Modern Human Resource Management","","Alison","en","https://www.courses.ie/course/diploma-in-modern-human-resource-management-187524/","hr",0],
+ ["hr4","Modern HR Management: Recruitment and Selection Process","","Alison","en","https://www.courses.ie/course/modern-human-resource-management-recruitment-and-selection-process-188520/","hr",0],
+ ["hr5","Recruitment Consultant","","Alison","en","https://www.courses.ie/course/recruitment-consultant-188706/","hr",0],
+ ["hr6","Strategic Human Resource Management and Development","","Alison","en","https://www.courses.ie/course/strategic-human-resource-management-and-development-188945/","hr",0],
+ 
+ ["te1","Diploma in Teaching Skills for Educators","","Alison","en","https://courses.ie/course/diploma-in-teaching-skills-for-educators-186747","teach",0],
+ ["te2","Effective Classroom Management Strategies","","Alison","en","https://www.courses.ie/course/effective-classroom-management-strategies-195176/","teach",0],
+ ["te3","Guide to Teaching English as a Second Language (ESL)","","Alison","en","https://courses.ie/course/guide-to-teaching-english-as-a-second-language-esl-187908","teach",0],
+ ["te4","Fundamentals of Classroom Management","","Alison","en","https://alison.com/en/course/fundamentals-of-classroom-management","teach",0],
+ ["te5","Diploma in Teaching Assistant and Educational Support","","Alison","en","https://www.courses.ie/course/diploma-in-teaching-assistant-and-educational-support-191901/","teach",0],
+ 
+ ["hl1","Introduction to Pharmacology","","Alison","en","https://www.courses.ie/course/introduction-to-pharmacology-188888/","health",0],
+ ["hl2","Pharmacy Assistant","","Alison","en","https://courses.ie/course/pharmacy-assistant-187676","health",0],
+ ["hl3","Introduction to Medical Terminology","","Alison","en","https://courses.ie/course/introduction-to-medical-terminology-187461","health",0],
+ ["hl4","Diploma in Understanding Medical Terminologies","","Alison","en","https://courses.ie/course/diploma-in-understanding-medical-terminologies-187504","health",0],
+ ["hl5","CPR, AED and First Aid","","Alison","en","https://alison.com/course/cpr-aed-and-first-aid","health",0],
+ ["hl6","Essential Medical Terminology","","Alison","en","https://www.courses.ie/course/essential-medical-terminology-192024/","health",0],
+ 
+ ["bz1","The Fundamentals of Start-Ups, Fundraising and Entrepreneurship","","Alison","en","https://www.courses.ie/course/the-fundamentals-of-start-ups-fundraising-and-entrepreneurship-201491/","biz",0],
+ ["bz2","The Elements of Entrepreneurial Success","","Alison","en","https://www.courses.ie/course/the-elements-of-entrepreneurial-success-195443","biz",0],
+ ["bz3","Successful Entrepreneurship for Small Businesses","","Alison","en","https://alison.com/course/successful-entrepreneurship-for-small-businesses","biz",0],
+ ["bz4","Small Business: The Business Plan","","Alison","en","https://alison.com/course/small-business-the-business-plan","biz",0],
+ ["bz5","Small Business Management","","Alison","en","https://alison.com/en/course/small-business-management","biz",0],
+ ["bz6","Becoming an Entrepreneur","","Alison","en","https://www.courses.ie/course/becoming-an-entrepreneur-196017/","biz",0],
+ ["bz7","Entrepreneurship: Creating the Business","","Alison","en","https://www.courses.ie/course/entrepreneurship-creating-the-business-188782/","biz",0],
+ ["arbiz","From Idea to Company: Intro to Entrepreneurship","من فكرة إلى شركة: مقدمة في ريادة الأعمال","Edraak","ar",g("إدراك من فكرة إلى شركة مقدمة في ريادة الأعمال"),"biz",2],
+ 
+ ["tr1","Introduction to Tourism and Hospitality Management","","Alison","en","https://www.courses.ie/course/introduction-to-tourism-and-hospitality-management-195574/","tour",0],
+ ["tr2","Hospitality Management Studies: Hotel Operations","","Alison","en","https://courses.ie/course/hospitality-management-studies-hotel-operations-186799","tour",0],
+ ["tr3","Diploma in Hospitality and Tourism Management","","Alison","en","https://courses.ie/course/diploma-in-hospitality-and-tourism-management-187472","tour",0],
+ ["tr4","Diploma in Hospitality Management","","Alison","en","https://courses.ie/course/diploma-in-hospitality-management-186730","tour",0],
+ ["tr5","Travel and Tourism Management","","Alison","en","https://courses.ie/course/travel-and-tourism-management-188513","tour",0],
+ ["tr6","Introduction to Hospitality Management Studies","","Alison","en","https://www.courses.ie/course/introduction-to-hospitality-management-studies-188966/","tour",0],
+ 
+ ["en1","Introduction to Electrical Maintenance","","Alison","en","https://alison.com/course/introduction-to-electrical-maintenance","eng",0],
+ ["en2","Electrical Engineering in Theory","","Alison","en","https://www.courses.ie/course/electrical-engineering-in-theory-195518/","eng",0],
+ ["en3","Electrical Fundamentals","","Alison","en","https://www.courses.ie/course/electrical-fundamentals-188779/","eng",0],
+ ["en4","An Introduction to Mechatronic Systems","","Alison","en","https://www.courses.ie/course/an-introduction-to-mechatronic-systems-195470/","eng",0],
+ ["en5","Diploma in Electrical Technology","","Alison","en","https://courses.ie/course/diploma-in-electrical-technology-187893","eng",0],
+ ["en6","Maintenance and Control of Electric Motors","","Alison","en","https://alison.com/course/maintenance-and-control-of-electric-motors","eng",0]
+];
+const COURSES = RAW.map(function(r){
+  let u = r[5], u2 = "";
+  const m = u.match(/^https:\/\/(?:www\.)?courses\.ie\/course\/(.+?)-\d{6}\/?$/);
+  if(m){ u2 = u; u = "https://alison.com/course/" + m[1]; }
+  return {id:r[0], te:r[1], t:r[2] || r[1], p:r[3], l:r[4], u:u, u2:u2, k:r[6].split(","), n:r[7]};
+});
+function ctitle(c){ return L === "ar" ? c.t : c.te; }
+function pname(c){ return (c.p === "Edraak" && L === "ar") ? "إدراك" : c.p; }
+function trackCourses(k){ return COURSES.filter(function(c){ return c.k.indexOf(k) !== -1; }); }
+function langName(l){ return l === "ar" ? T[L].cAr : T[L].cEn; }
+function noteOf(c){ return c.n === 1 ? T[L].nPlat : (c.n === 2 ? T[L].nSearch : ""); }
+ 
+/* ====== الأسئلة ====== */
+const Q = [
+ ["إيه النشاط اللي بتنسي الوقت وأنت بتعمله؟","What activity makes you lose track of time?",[["أحل مسائل وأبرمج","Solving problems and coding",["tech","cyber","eng"]],["أصمم وأرسم وأعمل فيديوهات","Designing, drawing and making videos",["design","video","mkt"]],["أتكلم مع الناس وأقنعهم","Talking to people and convincing them",["sales","hr","tour"]]]],
+ ["تفضل تشتغل إزاي؟","How do you prefer to work?",[["لوحدي على الكمبيوتر","Alone on a computer",["tech","cyber","design","video"]],["مع فريق على مشروع","With a team on a project",["mkt","hr","biz","eng"]],["مع ناس وجهاً لوجه","Face to face with people",["teach","health","sales","tour"]]]],
+ ["أنهي مادة في المدرسة بتحبها أكتر؟","Which school subject do you like most?",[["رياضيات وعلوم","Math and science",["tech","eng","cyber","acc"]],["لغات وأدب","Languages and literature",["trans","teach","tour","mkt"]],["أحياء وكيمياء","Biology and chemistry",["health","teach"]]]],
+ ["إيه اللي يهمك في شغلك؟","What matters most to you in your work?",[["أبتكر حاجة جديدة","Creating something new",["biz","design","tech"]],["أساعد الناس","Helping people",["health","teach","hr","sales"]],["أرتب وأنظم وأحسب","Organizing and calculating",["acc","eng","hr"]]]],
+ ["بتحب الأرقام والحسابات؟","Do you like numbers and calculations?",[["جداً","Very much",["acc","tech","eng","biz"]],["شوية","A little",["mkt","hr","cyber"]],["لأ","Not really",["design","video","trans","tour","teach"]]]],
+ ["بتحب الإنجليزي والكتابة؟","Do you like English and writing?",[["جداً","Very much",["trans","mkt","tour","teach"]],["عادي","It's okay",["sales","hr","biz"]],["مش أوي","Not much",["tech","eng","acc"]]]],
+ ["في مشروع المدرسة، دورك بيبقى إيه؟","In a school project, what is your role?",[["أقود الفريق وأوزع الشغل","Leading the team and assigning tasks",["biz","hr","teach"]],["أنفذ الجزء التقني","Doing the technical part",["tech","cyber","eng"]],["أعمل التصميم والعرض","Doing the design and presentation",["design","video","mkt"]]]],
+ ["إيه اللي بيجذبك أكتر؟","What attracts you most?",[["أحمي الناس والأنظمة من الخطر","Protecting people and systems from danger",["cyber","health"]],["أشرح وأعلّم","Explaining and teaching",["teach","hr"]],["أسافر وأقابل ناس","Traveling and meeting people",["tour","sales"]]]],
+ ["تحب شغلك يبقى إزاي؟","What kind of work setup do you prefer?",[["مكتب ثابت ومنظم","A fixed, organized office",["acc","hr","tech"]],["متحرك ومتغير","Moving around and changing",["tour","sales","biz","eng"]],["أونلاين من البيت","Online from home",["design","video","trans","mkt","tech"]]]],
+ ["لو هتبدأ مشروع، هتبدأ بإيه؟","If you started a project, what would it be?",[["فكرة أبيعها","An idea I can sell",["biz","sales"]],["منتج أو تطبيق","A product or an app",["tech","design"]],["خدمة تساعد ناس","A service that helps people",["health","teach","hr"]]]]
+];
+ 
+/* ====== أدوات عامة ====== */
+const app = document.getElementById("app");
+let i = 0, answers = [], page = "home", trackFilter = "all", langFilter = "all", cq = "";
+let favs = [];
+try{ favs = JSON.parse(localStorage.getItem("masarak_favs") || "[]"); }catch(e){ favs = []; }
+function saveFavs(){ try{ localStorage.setItem("masarak_favs", JSON.stringify(favs)); }catch(e){} }
+let lastTop = [];
+let sv = {grade:null, fit:null, knew:null, will:null, comment:""};
+function loadResp(){ try{ return JSON.parse(localStorage.getItem("masarak_resp") || "[]"); }catch(e){ return []; } }
+function saveResp(a){ try{ localStorage.setItem("masarak_resp", JSON.stringify(a)); }catch(e){} }
+function csvText(){
+  const rows = [["date","grade","match_1to5","knew_field_before","will_start_course","top1","top2","top3","comment"]];
+  const G = T.en.svGradeOpts, K = T.en.svKnewOpts, W = T.en.svWillOpts;
+  loadResp().forEach(function(r){
+    rows.push([r.t, G[r.g], r.f, K[r.k], W[r.w], (r.top[0] ? F[r.top[0]].e : ""), (r.top[1] ? F[r.top[1]].e : ""), (r.top[2] ? F[r.top[2]].e : ""), r.c]);
+  });
+  return "\ufeff" + rows.map(function(row){
+    return row.map(function(v){ return '"' + String(v === undefined ? "" : v).replace(/"/g,'""').replace(/\r?\n/g," ") + '"'; }).join(",");
+  }).join("\r\n");
+}
+function downloadCsv(){
+  const blob = new Blob([csvText()], {type:"text/csv;charset=utf-8"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "masarak-responses.csv";
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+}
+function toggleFav(id){
+  const k = favs.indexOf(id);
+  if(k === -1){ favs.push(id); } else { favs.splice(k,1); }
+  saveFavs();
+}
+ 
+function el(tag, cls, text){
+  const e = document.createElement(tag);
+  if(cls) e.className = cls;
+  if(text) e.textContent = text;
+  return e;
+}
+function setActive(name){
+  page = name;
+  ["home","quiz","courses","about","fav"].forEach(function(n){
+    document.getElementById("nav-" + n).classList.toggle("active", (n === name) || (name === "result" && n === "quiz"));
+  });
+  try{ window.scrollTo(0,0); }catch(e){}
+}
+function courseLi(c){
+  const li = el("li");
+  const a = el("a","",ctitle(c));
+  a.href = c.u; a.target = "_blank"; a.rel = "noopener";
+  li.appendChild(a);
+  li.appendChild(document.createTextNode(" (" + pname(c) + " - " + langName(c.l) + ")"));
+  const n = noteOf(c);
+  if(n){ li.appendChild(el("div","small",n)); }
+  return li;
+}
+function openTrack(k){ trackFilter = k; langFilter = "all"; cq = ""; showCourses(); }
+ 
+/* ====== الرئيسية ====== */
+function home(){
+  setActive("home");
+  app.innerHTML = "";
+  const hero = el("div","hero");
+  hero.appendChild(el("h1","",tr("heroT")));
+  hero.appendChild(el("p","",tr("heroP")));
+  const row = el("div","btnrow");
+  const b1 = el("button","go",tr("startQuiz")); b1.onclick = start;
+  const b2 = el("button","ghost",tr("browse")); b2.onclick = function(){ openTrack("all"); };
+  row.appendChild(b1); row.appendChild(b2);
+  hero.appendChild(row);
+  app.appendChild(hero);
+ 
+  const stats = el("div","stats");
+  [[Object.keys(F).length,tr("sField")],[COURSES.length,tr("sCourse")],[Q.length,tr("sQ")]].forEach(function(s){
+    const d = el("div","stat");
+    d.appendChild(el("b","",String(s[0])));
+    d.appendChild(el("span","",s[1]));
+    stats.appendChild(d);
+  });
+  app.appendChild(stats);
+ 
+  app.appendChild(el("h2","st",tr("howT")));
+  const steps = el("div","steps");
+  [["📝","s1t","s1p"],["🎯","s2t","s2p"],["🚀","s3t","s3p"]].forEach(function(s){
+    const d = el("div","step");
+    d.appendChild(el("div","ic",s[0]));
+    d.appendChild(el("b","",tr(s[1])));
+    d.appendChild(el("span","",tr(s[2])));
+    steps.appendChild(d);
+  });
+  app.appendChild(steps);
+ 
+  app.appendChild(el("h2","st",tr("tracksT")));
+  app.appendChild(el("p","sub",tr("tracksP")));
+  const tiles = el("div","tiles");
+  Object.keys(F).forEach(function(k){
+    const b = el("button","tile");
+    b.appendChild(el("div","ti",F[k].ic));
+    const d = el("div");
+    d.appendChild(el("b","",fname(k)));
+    d.appendChild(el("span","",tr("cnt",{n:trackCourses(k).length})));
+    b.appendChild(d);
+    b.onclick = function(){ openTrack(k); };
+    tiles.appendChild(b);
+  });
+  app.appendChild(tiles);
+}
+ 
+/* ====== الاختبار ====== */
+function start(){
+  setActive("quiz");
+  i = 0; answers = [];
+  app.innerHTML = "";
+  const w = el("div","qwrap");
+  const box = el("div","card");
+  box.appendChild(el("h1","pt",tr("quizT")));
+  box.appendChild(el("p","sub",tr("quizP",{n:Q.length})));
+  const b = el("button","go",tr("startQuiz"));
+  b.onclick = show;
+  box.appendChild(b);
+  w.appendChild(box);
+  app.appendChild(w);
+}
+ 
+function show(){
+  if(i >= Q.length){ return result(); }
+  setActive("quiz");
+  app.innerHTML = "";
+  const w = el("div","qwrap");
+  const box = el("div","card");
+  const pr = el("div","progress");
+  const bar = el("div");
+  bar.style.width = (i / Q.length * 100) + "%";
+  pr.appendChild(bar);
+  box.appendChild(pr);
+  box.appendChild(el("p","small",tr("qOf",{i:i+1,n:Q.length})));
+  const q = Q[i];
+  box.appendChild(el("h2","",L === "ar" ? q[0] : q[1]));
+  q[2].forEach(function(o){
+    const b = el("button","",L === "ar" ? o[0] : o[1]);
+    b.onclick = function(){ answers.push(o[2]); i++; show(); };
+    box.appendChild(b);
+  });
+  if(i > 0){
+    const back = el("button","",tr("back"));
+    back.style.fontSize = "14px";
+    back.onclick = function(){ answers.pop(); i--; show(); };
+    box.appendChild(back);
+  }
+  w.appendChild(box);
+  app.appendChild(w);
+}
+ 
+function result(){
+  setActive("result");
+  const score = {};
+  answers.forEach(function(list){
+    list.forEach(function(c){ score[c] = (score[c] || 0) + 1; });
+  });
+  const top = Object.keys(score).sort(function(a,b){ return score[b] - score[a]; }).slice(0,3);
+  lastTop = top;
+  app.innerHTML = "";
+  app.appendChild(el("h1","pt",tr("resT")));
+  app.appendChild(el("p","sub",""));
+  top.forEach(function(c, idx){
+    const pct = Math.min(100, Math.round(score[c] / Q.length * 100));
+    const box = el("div","card");
+    box.appendChild(el("span","rank",tr("rank",{n:idx+1})));
+    box.appendChild(el("h2","",F[c].ic + " " + fname(c)));
+    box.appendChild(el("p","small",tr("fit",{p:pct})));
+    const m = el("div","meter");
+    const sp = el("span");
+    sp.style.width = pct + "%";
+    m.appendChild(sp);
+    box.appendChild(m);
+    box.appendChild(el("p","small",tr("skills")));
+    const ul1 = el("ul");
+    fskills(c).forEach(function(x){ ul1.appendChild(el("li","",x)); });
+    box.appendChild(ul1);
+    box.appendChild(el("p","small",tr("starter")));
+    const ul2 = el("ul");
+    trackCourses(c).slice(0,5).forEach(function(cc){ ul2.appendChild(courseLi(cc)); });
+    box.appendChild(ul2);
+    const all = el("button","ghost noprint",tr("seeAll"));
+    all.onclick = function(){ openTrack(c); };
+    box.appendChild(all);
+    app.appendChild(box);
+  });
+  app.appendChild(el("div","note noprint",tr("resNote")));
+  const sc = el("div","card noprint");
+  sc.appendChild(el("h2","",tr("svT")));
+  sc.appendChild(el("p","small",tr("svP")));
+  const sb = el("button","go",tr("svBtn"));
+  sb.onclick = function(){ sv = {grade:null, fit:null, knew:null, will:null, comment:""}; survey(); };
+  sc.appendChild(sb);
+  app.appendChild(sc);
+  const row = el("div","btnrow noprint");
+  const again = el("button","go",tr("again")); again.onclick = start;
+  const shr = el("button","ghost",tr("shareBtn"));
+  shr.onclick = function(){ shareResult(shr); };
+  const pr = el("button","ghost",tr("pdf")); pr.onclick = function(){ window.print(); };
+  row.appendChild(again); row.appendChild(shr); row.appendChild(pr);
+  app.appendChild(row);
+}
+ 
+/* ====== الكورسات ====== */
+function courseCard(c){
+  const box = el("div","card course");
+  const fv = el("button","fav" + (favs.indexOf(c.id) !== -1 ? " on" : ""), favs.indexOf(c.id) !== -1 ? "⭐" : "☆");
+  fv.title = favs.indexOf(c.id) !== -1 ? tr("favDel") : tr("favAdd");
+  fv.onclick = function(){ toggleFav(c.id); if(page === "fav"){ showFav(); } else { renderList(); } };
+  box.appendChild(fv);
+  const top = el("div");
+  top.appendChild(el("div","cico",F[c.k[0]].ic));
+  top.appendChild(el("span","tag",pname(c)));
+  top.appendChild(el("span","tag lang",langName(c.l)));
+  top.appendChild(el("span","tag free",tr("free")));
+  top.appendChild(el("h2","",ctitle(c)));
+  const n = noteOf(c);
+  if(n){ top.appendChild(el("p","small",n)); }
+  box.appendChild(top);
+  const a = el("a","link",tr("open"));
+  a.href = c.u; a.target = "_blank"; a.rel = "noopener";
+  box.appendChild(a);
+  return box;
+}
+ 
+function filtered(){
+  const q = cq.trim().toLowerCase();
+  return COURSES.filter(function(c){
+    if(trackFilter !== "all" && c.k.indexOf(trackFilter) === -1){ return false; }
+    if(langFilter !== "all" && c.l !== langFilter){ return false; }
+    if(q && (c.t + " " + c.te + " " + c.p).toLowerCase().indexOf(q) === -1){ return false; }
+    return true;
+  });
+}
+ 
+function renderList(){
+  const box = document.getElementById("clist");
+  box.innerHTML = "";
+  const list = filtered();
+  box.appendChild(el("p","count",tr("cnt",{n:list.length})));
+  if(!list.length){
+    const e = el("div","card");
+    e.appendChild(el("p","",tr("empty")));
+    box.appendChild(e);
+    return;
+  }
+  const grid = el("div","grid");
+  list.forEach(function(c){ grid.appendChild(courseCard(c)); });
+  box.appendChild(grid);
+}
+ 
+function showCourses(){
+  setActive("courses");
+  app.innerHTML = "";
+  app.appendChild(el("h1","pt",tr("cT")));
+  app.appendChild(el("p","sub",tr("cP")));
+ 
+  const inp = el("input");
+  inp.id = "csearch";
+  inp.placeholder = tr("search");
+  inp.value = cq;
+  inp.oninput = function(){ cq = inp.value; renderList(); };
+  app.appendChild(inp);
+ 
+  const tabs = el("div","tabs");
+  ["all"].concat(Object.keys(F)).forEach(function(k){
+    const label = k === "all" ? tr("all") : F[k].ic + " " + fname(k) + " (" + trackCourses(k).length + ")";
+    const b = el("button","chip" + (trackFilter === k ? " on" : ""), label);
+    b.onclick = function(){ trackFilter = k; showCourses(); };
+    tabs.appendChild(b);
+  });
+  app.appendChild(tabs);
+ 
+  const lr = el("div","langrow");
+  [["all",tr("all")],["ar",tr("cAr")],["en",tr("cEn")]].forEach(function(f){
+    const b = el("button","chip" + (langFilter === f[0] ? " on" : ""), f[1]);
+    b.onclick = function(){ langFilter = f[0]; showCourses(); };
+    lr.appendChild(b);
+  });
+  app.appendChild(lr);
+ 
+  const holder = el("div");
+  holder.id = "clist";
+  app.appendChild(holder);
+  renderList();
+  app.appendChild(el("div","note",tr("payNote")));
+}
+ 
+/* ====== قائمتي ====== */
+function showFav(){
+  setActive("fav");
+  app.innerHTML = "";
+  app.appendChild(el("h1","pt",tr("favT")));
+  app.appendChild(el("p","sub",tr("favP")));
+  const list = COURSES.filter(function(c){ return favs.indexOf(c.id) !== -1; });
+  if(!list.length){
+    const e = el("div","card");
+    e.appendChild(el("p","",tr("favEmpty")));
+    const b = el("button","go",tr("browse"));
+    b.onclick = function(){ openTrack("all"); };
+    e.appendChild(b);
+    app.appendChild(e);
+    return;
+  }
+  const grid = el("div","grid");
+  list.forEach(function(c){ grid.appendChild(courseCard(c)); });
+  app.appendChild(grid);
+}
+ 
+/* ====== مشاركة النتيجة ====== */
+function shareResult(btn){
+  const names = lastTop.map(fname).join(L === "ar" ? "، " : ", ");
+  const txt = tr("shareText",{f:names});
+  if(navigator.share){ navigator.share({text:txt}).catch(function(){}); }
+  else if(navigator.clipboard){ navigator.clipboard.writeText(txt).then(function(){ btn.textContent = tr("shareDone"); }); }
+}
+ 
+/* ====== الاستبيان ====== */
+function group(box, title, opts, key){
+  box.appendChild(el("h2","",title));
+  const row = el("div","opts");
+  opts.forEach(function(label, idx){
+    const b = el("button","chip" + (sv[key] === idx ? " on" : ""), label);
+    b.onclick = function(){ sv[key] = idx; survey(); };
+    row.appendChild(b);
+  });
+  box.appendChild(row);
+}
+function survey(showErr){
+  setActive("survey");
+  app.innerHTML = "";
+  const w = el("div","qwrap");
+  const box = el("div","card");
+  box.appendChild(el("h1","pt",tr("svT")));
+  box.appendChild(el("p","sub",tr("svP")));
+  group(box, tr("svGrade"), T[L].svGradeOpts, "grade");
+  group(box, tr("svFit"), ["1","2","3","4","5"], "fit");
+  group(box, tr("svKnew"), T[L].svKnewOpts, "knew");
+  group(box, tr("svWill"), T[L].svWillOpts, "will");
+  box.appendChild(el("h2","",tr("svComment")));
+  const ta = el("textarea","cm");
+  ta.value = sv.comment;
+  ta.oninput = function(){ sv.comment = ta.value; };
+  box.appendChild(ta);
+  if(showErr){ box.appendChild(el("div","err",tr("svNeed"))); }
+  const send = el("button","go",tr("svSend"));
+  send.onclick = function(){
+    if(sv.grade === null || sv.fit === null || sv.knew === null || sv.will === null){ survey(true); return; }
+    const all = loadResp();
+    all.push({t:new Date().toISOString(), g:sv.grade, f:sv.fit + 1, k:sv.knew, w:sv.will, top:lastTop.slice(0,3), c:sv.comment.trim()});
+    saveResp(all);
+    thanks();
+  };
+  box.appendChild(send);
+  w.appendChild(box);
+  app.appendChild(w);
+}
+function thanks(){
+  setActive("thanks");
+  app.innerHTML = "";
+  const w = el("div","qwrap");
+  const box = el("div","card");
+  box.appendChild(el("div","okc",tr("svThanks")));
+  const b = el("button","go",tr("svHome"));
+  b.onclick = home;
+  box.appendChild(b);
+  w.appendChild(box);
+  app.appendChild(w);
+}
+function resultsCard(){
+  const all = loadResp();
+  const box = el("div","card");
+  box.appendChild(el("h2","",tr("resultsT")));
+  if(!all.length){
+    box.appendChild(el("p","small",tr("resultsP")));
+    return box;
+  }
+  const n = all.length;
+  const pct = function(c){ return Math.round(c / n * 100); };
+  const good = all.filter(function(r){ return r.f >= 4; }).length;
+  const will = all.filter(function(r){ return r.w === 0; }).length;
+  const knewNo = all.filter(function(r){ return r.k === 1; }).length;
+  const avg = (all.reduce(function(a, r){ return a + r.f; }, 0) / n).toFixed(1);
+  const ul = el("ul");
+  [tr("stN",{n:n}), tr("stFit",{p:pct(good)}), tr("stWill",{p:pct(will)}), tr("stKnew",{p:pct(knewNo)}), tr("stAvg",{a:avg})].forEach(function(x){
+    ul.appendChild(el("li","",x));
+  });
+  box.appendChild(ul);
+  box.appendChild(el("p","small",tr("stLocal")));
+  const row = el("div","btnrow noprint");
+  const d = el("button","ghost",tr("csv")); d.onclick = downloadCsv;
+  const c = el("button","ghost",tr("clear"));
+  c.onclick = function(){ if(confirm(tr("clearAsk"))){ saveResp([]); about(); } };
+  row.appendChild(d); row.appendChild(c);
+  box.appendChild(row);
+  return box;
+}
+ 
+/* ====== عن المشروع ====== */
+function about(){
+  setActive("about");
+  app.innerHTML = "";
+  app.appendChild(el("h1","pt",tr("aboutT")));
+  app.appendChild(el("p","sub",""));
+  T[L].about.forEach(function(p){
+    const box = el("div","card");
+    box.appendChild(el("h2","",p[0]));
+    box.appendChild(el("p","",p[1]));
+    app.appendChild(box);
+  });
+  app.appendChild(resultsCard());
+}
+ 
+/* ====== الشات بوت ====== */
+const KW = {
+ tech:["برمجه","بايثون","ذكاء","تقنيه","داتا","بيانات","كود","python","programming","coding","code","ai","data","tech","software","web"],
+ mkt:["تسويق","سوشيال","marketing","ads","seo"],
+ design:["تصميم","جرافيك","رسم","design","photoshop","drawing","illustrator"],
+ eng:["هندسه","صيانه","كهرباء","engineering","maintenance","electrical","mechanical"],
+ trans:["ترجمه","محتوي","كتابه","translation","content","writing","translate"],
+ acc:["محاسبه","ماليه","accounting","finance","accountant"],
+ sales:["مبيعات","عملاء","سيلز","sales","customer"],
+ hr:["موارد بشريه","hr","human resources","recruitment"],
+ cyber:["سيبراني","هاكر","اختراق","cyber","security","hacking","hacker"],
+ video:["مونتاج","فيديو","video","editing","filmmaking"],
+ teach:["تدريس","مدرس","معلم","teaching","teacher","education"],
+ health:["صيدله","صيدلي","طبيب","دكتور","مستشفي","تمريض","pharmacy","health","medical","doctor","nurse"],
+ biz:["ريادة","بزنس","شركه ناشئه","entrepreneur","business","startup"],
+ tour:["سياحه","ضيافه","فندق","tourism","hotel","travel"]
+};
+function norm(s){
+  return s.toLowerCase().replace(/[أإآ]/g,"ا").replace(/ى/g,"ي").replace(/ة/g,"ه").replace(/[ًٌٍَُِّْ]/g,"");
+}
+function hasKw(t, w){
+  w = norm(w);
+  if(/^[a-z ]+$/.test(w)){
+    return new RegExp("(^|[^a-z])" + w + "([^a-z]|$)").test(t);
+  }
+  return t.indexOf(w) !== -1;
+}
+function matchedFields(t){
+  return Object.keys(KW).filter(function(k){
+    return KW[k].some(function(w){ return hasKw(t, w); });
+  });
+}
+function fieldAnswer(k){
+  const list = trackCourses(k);
+  let r = F[k].ic + " " + fname(k) + "\n" + tr("topSk") + " " + fskills(k).join("، ") + "\n" + tr("coursesAre") + "\n";
+  r += list.slice(0,5).map(function(c){ return "- " + ctitle(c); }).join("\n");
+  if(list.length > 5){ r += "\n" + tr("more"); }
+  return r;
+}
+function brief(k){
+  return "• " + fname(k) + ": " + fskills(k).slice(0,3).join("، ");
+}
+function botReply(text){
+  const t = norm(text);
+  const fs = matchedFields(t);
+  if(fs.length >= 2){
+    return tr("compare") + "\n" + fs.slice(0,3).map(brief).join("\n");
+  }
+  if(fs.length === 1){ return fieldAnswer(fs[0]); }
+  if(/مرحبا|اهلا|سلام|هاي|hello|\bhi\b|hey/.test(t)){ return tr("hi"); }
+  if(/شكرا|تسلم|thank/.test(t)){ return tr("thanks"); }
+  if(/مجالات|المجالات|fields|tracks|available/.test(t)){
+    return tr("fieldsList") + "\n" + Object.keys(F).map(function(k){ return "- " + fname(k); }).join("\n");
+  }
+  if(/اقترح|رشح|مناسب|ايه المجال|suggest|recommend|which field|what field/.test(t)){ return tr("suggestFlow"); }
+  if(/شهاده|certificate|certif/.test(t)){ return tr("cert"); }
+  if(/نصيحه|نصايح|tip|advice/.test(t)){
+    const a = T[L].tips;
+    return a[Math.floor(Math.random() * a.length)];
+  }
+  if(/كام مجال|كام كورس|how many/.test(t)){
+    return tr("howMany",{f:Object.keys(F).length,c:COURSES.length});
+  }
+  if(/كورس|مجان|دورات|دوره|course|free|learn/.test(t)){
+    const wantAr = /عربي|arabic/.test(t);
+    const wantEn = /انجليزي|english/.test(t);
+    let list = COURSES;
+    if(wantAr && !wantEn){ list = COURSES.filter(function(c){ return c.l === "ar"; }); }
+    if(wantEn && !wantAr){ list = COURSES.filter(function(c){ return c.l === "en"; }); }
+    return tr("coursesAre") + "\n" + list.slice(0,8).map(function(c){ return "- " + ctitle(c) + " (" + pname(c) + ")"; }).join("\n") + "\n" + tr("more");
+  }
+  if(/اختبار|نتيجه|حساب|يحسب|توافق|quiz|score|result|work/.test(t)){ return tr("quizHow"); }
+  if(/ابدا|بدايه|ازاي|اعمل ايه|start|begin|how do i/.test(t)){ return tr("howStart"); }
+  return tr("fallback");
+}
+const msgs = document.getElementById("msgs");
+const botbox = document.getElementById("bot");
+const botinput = document.getElementById("botinput");
+function addMsg(text, who){
+  msgs.appendChild(el("div","msg " + who, text));
+  msgs.scrollTop = msgs.scrollHeight;
+}
+function ask(text){
+  const q = text.trim();
+  if(!q){ return; }
+  addMsg(q, "me");
+  botinput.value = "";
+  setTimeout(function(){ addMsg(botReply(q), "bot"); }, 300);
+}
+function initBot(){
+  msgs.innerHTML = "";
+  const sg = document.getElementById("sugg");
+  sg.innerHTML = "";
+  document.getElementById("bothead").textContent = tr("bot");
+  botinput.placeholder = tr("botPh");
+  document.getElementById("botsend").textContent = tr("send");
+  addMsg(tr("welcome"), "bot");
+  T[L].sugg.forEach(function(s){
+    const b = el("button","",s);
+    b.onclick = function(){ ask(s); };
+    sg.appendChild(b);
+  });
+}
+document.getElementById("botbtn").onclick = function(){ botbox.classList.toggle("open"); };
+document.getElementById("botsend").onclick = function(){ ask(botinput.value); };
+botinput.addEventListener("keydown", function(e){ if(e.key === "Enter"){ ask(botinput.value); } });
+ 
+/* ====== اللغة والتنقل ====== */
+function applyLang(){
+  document.documentElement.lang = L;
+  document.documentElement.dir = L === "ar" ? "rtl" : "ltr";
+  document.getElementById("logo-text").textContent = tr("logo");
+  document.getElementById("nav-home").textContent = tr("nHome");
+  document.getElementById("nav-quiz").textContent = tr("nQuiz");
+  document.getElementById("nav-courses").textContent = tr("nCourses");
+  document.getElementById("nav-about").textContent = tr("nAbout");
+  document.getElementById("nav-fav").textContent = "⭐ " + tr("nFav");
+  document.getElementById("nav-lang").textContent = tr("lang");
+  document.getElementById("foot").textContent = tr("foot");
+  initBot();
+}
+function render(){
+  if(page === "home"){ home(); }
+  else if(page === "quiz"){ (answers.length || i > 0) ? show() : start(); }
+  else if(page === "result"){ result(); }
+  else if(page === "courses"){ showCourses(); }
+  else if(page === "fav"){ showFav(); }
+  else if(page === "survey"){ survey(); }
+  else if(page === "thanks"){ thanks(); }
+  else { about(); }
+}
+document.getElementById("nav-lang").onclick = function(){
+  L = L === "ar" ? "en" : "ar";
+  applyLang();
+  render();
+};
+document.getElementById("logo").onclick = home;
+document.getElementById("nav-home").onclick = home;
+document.getElementById("nav-quiz").onclick = start;
+document.getElementById("nav-courses").onclick = function(){ openTrack("all"); };
+document.getElementById("nav-about").onclick = about;
+document.getElementById("nav-fav").onclick = showFav;
+ 
+applyLang();
+home();
+</script>
+<script id="pro-js">
+(function(){
+var $=function(i){return document.getElementById(i)};
+var S={ar:{login:'تسجيل الدخول',signup:'إنشاء حساب',sub:'سجّل عشان تحفظ نتيجتك وكورساتك وتتابع تقدمك.',name:'الاسم',email:'الإيميل',pass:'كلمة السر (6 حروف على الأقل)',toS:'معندكش حساب؟ أنشئ حساب',toL:'عندك حساب؟ سجّل دخول',out:'خروج',eReq:'من فضلك املا كل الخانات.',eMail:'الإيميل مش صحيح.',ePw:'كلمة السر لازم 6 حروف على الأقل.',eEx:'الإيميل ده مسجل قبل كده.',eBad:'الإيميل أو كلمة السر غلط.',hi:'أهلاً يا {n} 👋',prog:'تقدمك: خلصت {d} من {t} كورس',last:'آخر نتيجة ليك:',noTop:'لسه معملتش الاختبار. ابدأ دلوقتي من زر الاختبار!',mark:'☐ علّم إنك خلصته',done:'✅ خلصته',fb:'شاركنا رأيك'},
+en:{login:'Log in',signup:'Create account',sub:'Sign up to save your result and courses and track your progress.',name:'Name',email:'Email',pass:'Password (min 6 characters)',toS:"No account? Create one",toL:'Have an account? Log in',out:'Log out',eReq:'Please fill in all fields.',eMail:'Invalid email.',ePw:'Password must be at least 6 characters.',eEx:'This email is already registered.',eBad:'Wrong email or password.',hi:'Welcome, {n} 👋',prog:'Your progress: {d} of {t} courses done',last:'Your last result:',noTop:'You have not taken the quiz yet. Start it now!',mark:'☐ Mark as done',done:'✅ Done',fb:'Share your feedback'}};
+var t=function(k){return S[L][k]};
+var X={ar:{ach:'إنجازاتي',achP:'بادجاتك وشهاداتك على الكورسات اللي خلصتها.',bdg:'البادجات',certs:'الشهادات',noCert:'علّم على كورس إنك خلصته وتظهر شهادته هنا.',dl:'🎓 حمّل الشهادة',b1:'أول كورس',b3:'٣ كورسات',b10:'١٠ كورسات',bq:'خلصت الاختبار',bf:'٥ كورسات في قائمتي',bt:'متخصص في',earned:'البادجات اللي كسبتها:',adm:'لوحة الأدمن',stU:'عدد الحسابات: {n}',stR:'عدد الردود: {n}',noR:'لسه مفيش ردود.',topF:'المجالات الأكثر ظهوراً (المركز الأول)',cm:'آخر التعليقات',adErr:'مقدرتش أقرأ البيانات. اتأكد من قواعد Firestore.',cT:'شهادة إنجاز',cBy:'تشهد منصة مسارك بأن',cDid:'أتمّ/ت الكورس',cNote:'شهادة إنجاز داخل منصة مسارك، وليست شهادة معتمدة من منصة الكورس.'},
+en:{ach:'Achievements',achP:'Your badges and certificates for completed courses.',bdg:'Badges',certs:'Certificates',noCert:'Mark a course as done and its certificate shows up here.',dl:'🎓 Download certificate',b1:'First course',b3:'3 courses',b10:'10 courses',bq:'Finished the quiz',bf:'5 saved courses',bt:'Specialist in',earned:'Badges earned:',adm:'Admin',stU:'Accounts: {n}',stR:'Responses: {n}',noR:'No responses yet.',topF:'Top fields (rank 1)',cm:'Latest comments',adErr:'Could not read data. Check your Firestore rules.',cT:'Certificate of Achievement',cBy:'Masarak certifies that',cDid:'completed the course',cNote:'An achievement certificate inside Masarak, not an accredited certificate from the course platform.'}};
+var x=function(k){return X[L][k]};
+var FB=false,auth,db,uid='',fbName='';
+try{if(FIREBASE_CONFIG&&window.firebase){firebase.initializeApp(FIREBASE_CONFIG);auth=firebase.auth();db=firebase.firestore();FB=true}}catch(e){}
+/* animated background */
+var cv=$('bg'),cx=cv.getContext('2d'),W,H,P=[],mx=-999,my=-999;
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight;P=[];for(var i=0;i<Math.min(75,W*H/15000);i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.45,vy:(Math.random()-.5)*.45})}
+rs();addEventListener('resize',rs);addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY});
+function line(a,b,c,al){cx.strokeStyle='rgba('+c+','+al+')';cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke()}
+(function f(){cx.clearRect(0,0,W,H);var tt=Date.now()/4000;
+[[.2,.3,'79,140,255'],[.8,.7,'139,92,246']].forEach(function(o,i){var x=W*(o[0]+Math.sin(tt+i*2)*.08),y=H*(o[1]+Math.cos(tt+i)*.08),g=cx.createRadialGradient(x,y,0,x,y,Math.max(W,H)*.45);g.addColorStop(0,'rgba('+o[2]+',.17)');g.addColorStop(1,'rgba('+o[2]+',0)');cx.fillStyle=g;cx.fillRect(0,0,W,H)});
+P.forEach(function(p,i){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+cx.fillStyle='rgba(160,190,255,.75)';cx.beginPath();cx.arc(p.x,p.y,1.7,0,7);cx.fill();
+for(var j=i+1;j<P.length;j++){var q=P[j],d=Math.hypot(p.x-q.x,p.y-q.y);if(d<130)line(p,q,'120,160,255',.24*(1-d/130))}
+var m=Math.hypot(p.x-mx,p.y-my);if(m<170)line(p,{x:mx,y:my},'180,140,255',.45*(1-m/170))});
+requestAnimationFrame(f)})();
+/* accounts (stored on this device only) */
+var KU='masarak_users',KS='masarak_session',me=null,D={favs:[],done:[],top:[]};
+function jget(k,d){try{return JSON.parse(localStorage.getItem(k))||d}catch(e){return d}}
+function jset(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function saveD(){jset('masarak_d_'+me,D);if(FB&&uid)db.collection('users').doc(uid).set({name:fbName,email:me,d:D,upd:Date.now()},{merge:true}).catch(function(){})}
+function U(){return FB?{name:fbName}:(jget(KU,{})[me]||{name:''})}
+function hash(pw,salt){try{return crypto.subtle.digest('SHA-256',new TextEncoder().encode(salt+pw)).then(function(b){return Array.from(new Uint8Array(b)).map(function(x){return ('0'+x.toString(16)).slice(-2)}).join('')})}catch(e){return Promise.resolve(btoa(unescape(encodeURIComponent(salt+pw))))}}
+function authUI(mode){var a=$('auth');a.style.display='flex';a.dir=L=='ar'?'rtl':'ltr';
+a.innerHTML='<div class="box"><div class="lg">🧭 '+tr('logo')+'</div><h2>'+t(mode)+'</h2><p class="small">'+t('sub')+'</p>'+(mode=='signup'?'<input class="ai" id="a-n" placeholder="'+t('name')+'">':'')+'<input class="ai" id="a-e" type="email" placeholder="'+t('email')+'"><input class="ai" id="a-p" type="password" placeholder="'+t('pass')+'"><div class="err" id="a-x" style="display:none"></div><button class="go" id="a-go" style="text-align:center">'+t(mode)+'</button><button class="tg" id="a-tg">'+t(mode=='login'?'toS':'toL')+'</button><button class="tg" id="a-l">'+tr('lang')+'</button></div>';
+function err(k){var x=$('a-x');x.textContent=t(k);x.style.display='block'}
+$('a-tg').onclick=function(){authUI(mode=='login'?'signup':'login')};
+$('a-l').onclick=function(){L=L=='ar'?'en':'ar';applyLang();authUI(mode)};
+$('a-go').onclick=function(){var e=$('a-e').value.trim().toLowerCase(),p=$('a-p').value,n=mode=='signup'?$('a-n').value.trim():'x';
+if(!e||!p||!n)return err('eReq');if(!/^\S+@\S+\.\S+$/.test(e))return err('eMail');
+if(FB)return fbAuth(mode,e,p,n,err);var us=jget(KU,{});
+if(mode=='signup'){if(p.length<6)return err('ePw');if(us[e])return err('eEx');
+var salt=Math.random().toString(36).slice(2);hash(p,salt).then(function(h){us[e]={name:n,salt:salt,hash:h,at:Date.now()};jset(KU,us);enter(e)})}
+else{var u=us[e];if(!u)return err('eBad');hash(p,u.salt).then(function(h){h===u.hash?enter(e):err('eBad')})}};
+a.onkeydown=function(ev){if(ev.key=='Enter')$('a-go').click()}}
+function enter(e){me=e;jset(KS,e);D=Object.assign({favs:[],done:[],top:[]},jget('masarak_d_'+e,{}));favs=D.favs;
+$('auth').style.display='none';navU();page='home';home()}
+function navU(){var b=$('nav-user');if(!b){b=document.createElement('button');b.id='nav-user';b.onclick=function(){localStorage.removeItem(KS);if(FB)auth.signOut();me=null;favs=[];D={favs:[],done:[],top:[]};navU();page='home';home();authUI('login')};document.querySelector('nav').insertBefore(b,$('nav-lang'))}
+b.style.display=me?'':'none';if(me){b.textContent='🚪 '+t('out');b.title=U().name}}
+saveFavs=function(){if(me){D.favs=favs;saveD()}};
+/* extras: progress, dashboard, count-up stats */
+var _c=courseCard;courseCard=function(c){var box=_c(c),d=document.createElement('button'),on=D.done.indexOf(c.id)>-1;
+d.className='dn'+(on?' on':'');d.textContent=t(on?'done':'mark');
+d.onclick=function(){var k=D.done.indexOf(c.id);k<0?D.done.push(c.id):D.done.splice(k,1);saveD();d.className='dn'+(k<0?' on':'');d.textContent=t(k<0?'done':'mark')};box.appendChild(d);return box};
+var _r=result;result=function(){_r();D.top=lastTop.slice();if(me)saveD()};
+function mk(tag,cls,tx){var e=document.createElement(tag);if(cls)e.className=cls;if(tx)e.textContent=tx;return e}
+function dash(){var d=mk('div','card dash'),n=D.done.length,T0=COURSES.length;
+d.appendChild(mk('h2','',t('hi').replace('{n}',U().name.split(' ')[0])));
+d.appendChild(mk('p','small',t('prog').replace('{d}',n).replace('{t}',T0)));
+var m=mk('div','meter'),s=mk('span');s.style.width=(n/T0*100)+'%';m.appendChild(s);d.appendChild(m);
+d.appendChild(mk('p','',D.top.length?t('last')+' '+D.top.map(fname).join(L=='ar'?'، ':', '):t('noTop')));
+if(D.top.length){var b=mk('button','ghost',t('fb'));b.onclick=function(){lastTop=D.top.slice();sv={grade:null,fit:null,knew:null,will:null,comment:''};survey()};d.appendChild(b)}
+d.appendChild(mk('p','small',x('earned')+' '+badges().filter(function(b){return b[2]}).length+' 🏅'));return d}
+var _h=home;home=function(){_h();var a=$('app');if(me&&a.firstChild)a.insertBefore(dash(),a.firstChild.nextSibling);
+document.querySelectorAll('.stat b').forEach(function(b){var n=+b.textContent,c=0,iv=setInterval(function(){c+=Math.ceil(n/25);if(c>=n){c=n;clearInterval(iv)}b.textContent=c},30)})};
+$('logo').onclick=$('nav-home').onclick=home;
+var _a=applyLang;applyLang=function(){_a();navU();navX()};
+function fbAuth(mode,e,p,n,err){var pr=mode=='signup'?auth.createUserWithEmailAndPassword(e,p).then(function(c){return c.user.updateProfile({displayName:n})}):auth.signInWithEmailAndPassword(e,p);
+pr.then(function(){enterFB(auth.currentUser)}).catch(function(z){var c=z.code||'';err(c.indexOf('email-already')>-1?'eEx':c.indexOf('weak')>-1?'ePw':c.indexOf('invalid-email')>-1?'eMail':'eBad')})}
+function enterFB(u){uid=u.uid;me=u.email;fbName=u.displayName||(u.email||'').split('@')[0];
+function go(x0){D=Object.assign({favs:[],done:[],top:[]},x0);favs=D.favs;$('auth').style.display='none';navU();page='home';home()}
+db.collection('users').doc(uid).get().then(function(d){go(d.exists&&d.data().d||{});if(!d.exists)saveD()}).catch(function(){go({})})}
+var _nu=navU;navU=function(){_nu();navX()};
+function navX(){var n=document.querySelector('nav');['ach','adm'].forEach(function(k){var b=$('nav-'+k);if(!b){b=document.createElement('button');b.id='nav-'+k;b.onclick=k=='ach'?ach:admin;n.insertBefore(b,$('nav-lang'))}
+b.textContent=(k=='ach'?'🎓 ':'📊 ')+x(k);b.style.display=(k=='ach'?me:(FB&&me&&me.toLowerCase()==ADMIN_EMAIL.toLowerCase()))?'':'none'})}
+function trackDone(k){return COURSES.filter(function(c){return D.done.indexOf(c.id)>-1&&c.k.indexOf(k)>-1}).length}
+function badges(){var n=D.done.length,b=[['🌱',x('b1'),n>=1],['🔥',x('b3'),n>=3],['🏆',x('b10'),n>=10],['🎯',x('bq'),D.top.length>0],['⭐',x('bf'),D.favs.length>=5]];
+Object.keys(F).forEach(function(k){if(trackDone(k)>=3)b.push([F[k].ic,x('bt')+' '+fname(k),true])});return b}
+function ach(){setActive('ach');var a=$('app');a.innerHTML='';a.appendChild(mk('h1','pt',x('ach')));a.appendChild(mk('p','sub',x('achP')));
+var bx=mk('div','card');bx.appendChild(mk('h2','',x('bdg')));var row=mk('div','btnrow');
+badges().forEach(function(b){var c=mk('span','tag',b[0]+' '+b[1]);c.style.cssText='font-size:14px;padding:6px 14px;opacity:'+(b[2]?1:.35);row.appendChild(c)});bx.appendChild(row);a.appendChild(bx);
+var cb=mk('div','card');cb.appendChild(mk('h2','',x('certs')));var list=COURSES.filter(function(c){return D.done.indexOf(c.id)>-1});
+if(!list.length)cb.appendChild(mk('p','small',x('noCert')));
+list.forEach(function(c){var r=mk('div','btnrow'),p=mk('span','',ctitle(c)),b=mk('button','ghost',x('dl'));p.style.flex='1';b.style.cssText='margin:0;width:auto';b.onclick=function(){cert(c)};r.appendChild(p);r.appendChild(b);cb.appendChild(r)});
+a.appendChild(cb)}
+function cert(c){var w=1200,h=850,k2=document.createElement('canvas');k2.width=w;k2.height=h;var g=k2.getContext('2d'),gr=g.createLinearGradient(0,0,w,h);
+gr.addColorStop(0,'#0b1647');gr.addColorStop(1,'#1d1b4b');g.fillStyle=gr;g.fillRect(0,0,w,h);
+g.strokeStyle='#e0b84c';g.lineWidth=6;g.strokeRect(30,30,w-60,h-60);g.lineWidth=2;g.strokeRect(48,48,w-96,h-96);
+g.textAlign='center';g.direction=L=='ar'?'rtl':'ltr';
+function tx(s,y,sz,col,wt){var f=function(z){return (wt||'600')+' '+z+'px Cairo,Tahoma,Arial,sans-serif'};g.font=f(sz);var m=g.measureText(s).width;if(m>w-200)g.font=f(Math.floor(sz*(w-200)/m));g.fillStyle=col;g.fillText(s,w/2,y)}
+tx('🧭 '+tr('logo'),130,46,'#9cc0ff','700');tx(x('cT'),230,64,'#e0b84c','700');tx(x('cBy'),310,30,'#aab6d8');tx(U().name,410,72,'#fff','700');tx(x('cDid'),490,30,'#aab6d8');
+tx(ctitle(c),580,44,'#fff','700');tx(pname(c),640,28,'#9cc0ff');tx(new Date().toLocaleDateString(L=='ar'?'ar-EG':'en-GB'),730,26,'#aab6d8');tx(x('cNote'),790,18,'#7d8aad','400');
+var a=document.createElement('a');a.href=k2.toDataURL('image/png');a.download='masarak-certificate.png';document.body.appendChild(a);a.click();document.body.removeChild(a)}
+function csvOf(rs){var G=T.en.svGradeOpts,K=T.en.svKnewOpts,W=T.en.svWillOpts,rows=[['date','grade','match_1to5','knew_field_before','will_start_course','top1','top2','top3','comment']];
+rs.forEach(function(r){var tp=r.top||[],f=function(i){return tp[i]?F[tp[i]].e:''};rows.push([r.t,G[r.g],r.f,K[r.k],W[r.w],f(0),f(1),f(2),r.c])});
+var q=String.fromCharCode(34),csv='\ufeff'+rows.map(function(r){return r.map(function(v){return q+String(v==null?'':v).split(q).join(q+q).replace(/\r?\n/g,' ')+q}).join(',')}).join('\r\n');
+var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='masarak-responses.csv';document.body.appendChild(a);a.click();document.body.removeChild(a)}
+function admin(){setActive('admin');var a=$('app');a.innerHTML='';a.appendChild(mk('h1','pt',x('adm')));var bx=mk('div','card');bx.textContent='...';a.appendChild(bx);
+Promise.all([db.collection('responses').get(),db.collection('users').get()]).then(function(r){var rs=r[0].docs.map(function(d){return d.data()}),n=rs.length;bx.innerHTML='';
+bx.appendChild(mk('h2','',x('stU').replace('{n}',r[1].size)));if(!n){bx.appendChild(mk('p','small',x('noR')));return}
+var pc=function(f){return Math.round(rs.filter(f).length/n*100)},ul=mk('ul');
+[x('stR').replace('{n}',n),tr('stFit',{p:pc(function(z){return z.f>=4})}),tr('stWill',{p:pc(function(z){return z.w===0})}),tr('stKnew',{p:pc(function(z){return z.k===1})}),tr('stAvg',{a:(rs.reduce(function(s0,z){return s0+z.f},0)/n).toFixed(1)})].forEach(function(z){ul.appendChild(mk('li','',z))});bx.appendChild(ul);
+var cnt={};rs.forEach(function(z){var k=(z.top||[])[0];if(k&&F[k])cnt[k]=(cnt[k]||0)+1});
+bx.appendChild(mk('h2','',x('topF')));Object.keys(cnt).sort(function(p,q){return cnt[q]-cnt[p]}).forEach(function(k){bx.appendChild(mk('p','small',F[k].ic+' '+fname(k)+' — '+cnt[k]));var m=mk('div','meter'),sp=mk('span');sp.style.width=cnt[k]/n*100+'%';m.appendChild(sp);bx.appendChild(m)});
+bx.appendChild(mk('h2','',x('cm')));rs.filter(function(z){return z.c}).slice(-20).forEach(function(z){bx.appendChild(mk('p','small','• '+z.c))});
+var b=mk('button','ghost',tr('csv'));b.onclick=function(){csvOf(rs)};bx.appendChild(b)}).catch(function(){bx.textContent=x('adErr')})}
+var _sr=saveResp;saveResp=function(a){var o=loadResp().length;_sr(a);if(FB&&a.length>o)db.collection('responses').add(a[a.length-1]).catch(function(){})};
+var _rn=render;render=function(){page=='admin'?admin():page=='ach'?ach():_rn()};
+navU();
+var ses=jget(KS,null),us=jget(KU,{});
+if(FB){auth.onAuthStateChanged(function(u){if(u)enterFB(u);else{me=null;navU();authUI('signup')}})}
+else if(ses&&us[ses])enter(ses);else authUI(Object.keys(us).length?'login':'signup');
+})();
+</script>
+</body>
+</html>
+ 
